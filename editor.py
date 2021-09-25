@@ -21,4 +21,4 @@ def check_for_new_movie(movie):
     if movie in MOVIES:
         return
     notify('new_movie', movie)
-
+    MOVIES.append(movie)
