@@ -15,8 +15,8 @@ def check_for_new_episode(series, episode):
     TV_SHOWs[series].append(episode)
 
 
-def check_for_new_movie(movies: list, movie_site):
-    for movie in movies:
+def check_for_new_movie(movies_being_observed: list, movie_site):
+    for movie in movies_being_observed:
         movie_info = movie_site.get_movie_info(movie)
         if movie_info:
             notify('new_movie', movie_info)
