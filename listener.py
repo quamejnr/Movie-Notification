@@ -36,3 +36,5 @@ class EmailListener(Listener):
     def setup_event_handler(self):
         subscribe('new_episode', self.handle_new_episode)
         subscribe('new_movie', self.handle_new_movie)
+
+

@@ -1,10 +1,12 @@
 from listener import EmailListener, PhoneListener
+from desktop_listener import DesktopListener
 from editor import check_for_new_episode, check_for_new_movie
 
 
 # Initialize event listeners
 EmailListener()
 PhoneListener()
+DesktopListener()
 
 # check for new episode
 check_for_new_episode('See', 'see.s01e01')

@@ -1,4 +1,7 @@
 from event import notify
+from api import YTSApi
+
+yts = YTSApi()
 
 TV_SHOWs = {
     'Cursed': ['cursed.s01e01', 'cursed.s01e02', 'cursed.s01e03', 'cursed.s01e04'],
@@ -17,8 +20,12 @@ def check_for_new_episode(series, episode):
     TV_SHOWs[series].append(episode)
 
 
-def check_for_new_movie(movie):
-    if movie in MOVIES:
-        return
-    notify('new_movie', movie)
-    MOVIES.append(movie)
+def check_for_new_movie(movies: list):
+    movie_urls = [yts.get_movie_url(movie) for movie in movies if yts.get_movie_url(movie) is not None]
+    if movie_urls:
+        notify()
+    return movie_urls
+
+arr = ['Shang-Chi', 'eternals']
+
+print(check_for_new_movie(arr))
