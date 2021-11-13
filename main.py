@@ -2,7 +2,7 @@ from listener import EmailListener, PhoneListener
 from desktop_listener import DesktopListener
 from editor import check_for_new_episode, check_for_new_movie
 from api import YTSApi
-from movies import register, MOVIES_BEING_OBSERVED
+from movies import observe_movie, MOVIES_BEING_OBSERVED
 
 
 def main():
@@ -14,8 +14,8 @@ def main():
     # Initialize Movie Site
     yts = YTSApi()
 
-    # register movies
-    register(['eternals', 'venom carnage'])
+    # register movies to be observed
+    observe_movie(['eternals', 'venom carnage'])
 
     # check for new episode
     # check_for_new_episode('See', 'see.s01e01')

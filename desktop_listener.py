@@ -14,9 +14,9 @@ toaster = ToastNotifier()
 class DesktopListener(Listener):
 
     @staticmethod
-    def open_url(movie):
+    def open_url(movie_url):
         try:
-            webbrowser.get('edge').open(movie)
+            webbrowser.get('edge').open(movie_url)
         except Exception as e:
             print(e)
 

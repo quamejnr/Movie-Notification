@@ -1,7 +1,7 @@
 MOVIES_BEING_OBSERVED = []
 
 
-def register(movies):
+def observe_movie(movies):
     """
     Register movies to be observed
     :param movies: list or string

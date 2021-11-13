@@ -31,7 +31,8 @@ class YTSApi(MovieApi):
     def get_movie_url(self, movie_being_observed):
         movie_info = self.get_movie_info(movie_being_observed)
         if movie_info:
-            return movie_info['url']
+            movie_url = movie_info['url']
+            return movie_url
 
 
 
