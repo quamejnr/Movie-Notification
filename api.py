@@ -1,5 +1,11 @@
+import os
+from dotenv import load_dotenv
 import requests
 from abc import ABC, abstractmethod
+
+# Initialize dotenv
+load_dotenv()
+
 
 
 class MovieApi(ABC):
@@ -11,8 +17,8 @@ class MovieApi(ABC):
 
 class YTSApi(MovieApi):
 
-    # YTS API endpoint for the first 50 recent movies added to the site.
-    url = 'https://yts.mx/api/v2/list_movies.json?sort_by=date_added&order_by=desc&limit=50'
+    # API endpoint
+    url = os.environ.get('YTS_API')
 
     def get_movies(self) -> list:
 
