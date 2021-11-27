@@ -1,4 +1,5 @@
 from event import notify
+from api import MovieApi
 
 
 TV_SHOWs = {
@@ -15,8 +16,8 @@ def check_for_new_episode(series, episode):
     TV_SHOWs[series].append(episode)
 
 
-def check_for_new_movie(movies_being_observed: list, movie_site) -> None:
+def check_for_new_movie(movies_being_observed: list, movie_api: MovieApi) -> None:
     for movie in movies_being_observed:
-        movie_info = movie_site.get_movie_info(movie)
+        movie_info = movie_api.get_movie_info(movie)
         if movie_info:
             notify('new_movie', movie_info)

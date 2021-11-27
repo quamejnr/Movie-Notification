@@ -3,10 +3,6 @@ from event import subscribe
 from win10toast_click import ToastNotifier
 import webbrowser
 
-# Initialize edge web browser
-edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-webbrowser.register('edge', None, webbrowser.BackgroundBrowser(edge_path))
-
 # Initialize notifier
 toaster = ToastNotifier()
 
@@ -16,7 +12,7 @@ class DesktopListener(Listener):
     @staticmethod
     def open_url(movie_url):
         try:
-            webbrowser.get('edge').open(movie_url)
+            webbrowser.open(movie_url)
         except Exception as e:
             print(e)
 
