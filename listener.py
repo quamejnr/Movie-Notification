@@ -18,7 +18,7 @@ class PhoneListener(Listener):
         print(f'(Phone Notification) New episode alert: {episode_name} has been released')
 
     def handle_new_movie(self, movie):
-        print(f'(Phone Notification) New movie alert: {movie} has been released')
+        print(f"(Phone Notification) New movie alert: {movie['title']} has been released")
 
     def setup_event_handler(self):
         subscribe('new_episode', self.handle_new_episode)
@@ -31,8 +31,10 @@ class EmailListener(Listener):
         print(f'(Email Notification) New episode alert: {episode_name} has been released')
 
     def handle_new_movie(self, movie):
-        print(f'(Email Notification) New movie alert: {movie} has been released')
+        print(f"(Email Notification) New movie alert: {movie['title']} has been released")
 
     def setup_event_handler(self):
         subscribe('new_episode', self.handle_new_episode)
         subscribe('new_movie', self.handle_new_movie)
+
+

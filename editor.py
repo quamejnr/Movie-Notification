@@ -1,12 +1,11 @@
 from event import notify
+from api import MovieApi
+
 
 TV_SHOWs = {
     'Cursed': ['cursed.s01e01', 'cursed.s01e02', 'cursed.s01e03', 'cursed.s01e04'],
     'The Resident': ['the.resident.s01e01', 'the.resident.s01e02', 'the.resident.s01e03', 'the.resident.s01e04']
 }
-
-
-MOVIES = ['Old Guard', 'Free Guy', 'Avengers', 'Marvel Eternals']
 
 
 def check_for_new_episode(series, episode):
@@ -17,8 +16,8 @@ def check_for_new_episode(series, episode):
     TV_SHOWs[series].append(episode)
 
 
-def check_for_new_movie(movie):
-    if movie in MOVIES:
-        return
-    notify('new_movie', movie)
-    MOVIES.append(movie)
+def check_for_new_movie(movies_being_observed: list, movie_api: MovieApi) -> None:
+    for movie in movies_being_observed:
+        movie_info = movie_api.get_movie_info(movie)
+        if movie_info:
+            notify('new_movie', movie_info)
