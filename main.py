@@ -15,7 +15,7 @@ def main():
     yts = YTSApi()
 
     # register movies to be observed
-    observe_movie(['eternals', 'venom', 'red notice', "an unexpected christmas"])
+    observe_movie(['eternals', 'venom', 'red notice'])
 
     # check for new episode
     # check_for_new_episode('See', 'see.s01e01')
